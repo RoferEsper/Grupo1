@@ -6,7 +6,7 @@ const {
     crearEstudiante,
     editarEstudiante,
     eliminarEstudiante
-} = require('../controller/estudiantes');
+} = require('../Controllers/estudiantes');
 
 // Rutas para estudiantes
 router.get('/', mostrarEstudiantes);

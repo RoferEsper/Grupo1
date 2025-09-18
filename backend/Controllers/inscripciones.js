@@ -1,4 +1,4 @@
-const { connection } = require("../config/dataBase")
+const { connection } = require("../Config/dataBase")
 
 const mostrarInscripciones = (req, res)=>{
     connection.query('SELECT *  FROM inscripciones', (error, result)=>{

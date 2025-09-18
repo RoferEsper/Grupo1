@@ -1,9 +1,9 @@
 const express = require ("express")
 const mysql = require ("mysql2")
-const {connection} = require('./config/dataBase')
-const inscripciones = require ("./router/inscripciones")
-const cursos = require ("./router/cursos")
-const estudiantes = require('./router/estudiantes')
+const {connection} = require('./Config/dataBase')
+const inscripciones = require ("./Routers/inscripciones")
+const cursos = require ("./Routers/cursos")
+const estudiantes = require('./Routers/estudiantes')
 
 //instancio express
 const app = express()

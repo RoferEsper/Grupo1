@@ -1,4 +1,4 @@
-const { connection } = require('../config/dataBase');
+const { connection } = require('../Config/dataBase');
 
 // Obtener todos los cursos
 const mostrarCursos = (req, res) => {

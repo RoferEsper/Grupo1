@@ -1,5 +1,5 @@
 const express = require('express');
-const { mostrarCursos, mostrarCurso, crearCurso, actualizarCurso, eliminarCurso} = require('../controller/cursos');
+const { mostrarCursos, mostrarCurso, crearCurso, actualizarCurso, eliminarCurso} = require('../Controllers/cursos');
 const router = express.Router();
 
 router.get('/',mostrarCursos);

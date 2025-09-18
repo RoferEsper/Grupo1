@@ -1,5 +1,5 @@
 const express = require('express')
-const { mostrarInscripciones, crearInscripcion, editarInscripcion, borrarInscripcion } = require('../controller/inscripciones')
+const { mostrarInscripciones, crearInscripcion, editarInscripcion, borrarInscripcion } = require('../Controllers/inscripciones')
 const router = express.Router()
 
 router.get('/', mostrarInscripciones)
