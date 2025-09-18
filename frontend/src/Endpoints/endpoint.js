@@ -1,1 +1,6 @@
-// aqui van los endpoints
+export const mostrarCursos = 'http://localhost:8000/cursos';
+export const mostrarCurso = 'http://localhost:8000/cursos/';
+export const crearCurso = 'http://localhost:8000/cursos';
+export const actualizarCurso = 'http://localhost:8000/cursos';
+export const eliminarCurso = 'http://localhost:8000/cursos';
+
