@@ -1,1 +1,1 @@
-// aqui va el ruteo
+export const CURSOS = "/cursos"
