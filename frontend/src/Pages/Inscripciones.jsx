@@ -1,7 +1,9 @@
+import MainInscripciones from "../Components/CRUD_Inscripciones/MainInscripciones";
+
 const Inscripciones = () => {
     return ( 
         <>
-            page Inscripciones
+            <MainInscripciones/>
         </>
      );
 }

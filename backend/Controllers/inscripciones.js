@@ -1,7 +1,13 @@
 const { connection } = require("../Config/dataBase")
 
 const mostrarInscripciones = (req, res)=>{
-    connection.query('SELECT *  FROM inscripciones', (error, result)=>{
+    connection.query(`select inscripciones.id_inscripcion, inscripciones.fecha_inscripcion, 
+estudiantes.nombre as nombre_estudiante, estudiantes.email as email_estudiante, 
+cursos.nombre as nombre_curso, cursos.descripcion as descripcion_curso from inscripciones
+join estudiantes 
+on inscripciones.id_estudiante  = estudiantes.id_estudiante 
+join cursos
+on inscripciones.id_curso = cursos.id_curso`, (error, result)=>{
         if(error){
             return res.status(500).json('Ocurrio un error al obtener todos las isncripciones.')
         }
