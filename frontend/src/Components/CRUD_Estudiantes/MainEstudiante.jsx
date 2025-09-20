@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import { mostrarEstudiantes } from '../../Endpoints/endpoint';
 import axios from 'axios';
-import Modal from 'react-bootstrap/Modal';
+import { Link } from 'react-router-dom/Link';
 import Button from 'react-bootstrap/esm/Button';
 import FormEstudiante from './FormEstudiante';
 import EditEstudiante from './EditEstudiante';
@@ -13,45 +13,38 @@ import VerEstudiante from './VerEstudiante';
 
 
 const MainEstudiante = () => {
-        //state de estudiantes
-    const [estudiantes, setEstudiantes] = useState([]);
-    const [estudianteId, setEstudianteId] = useState(null);
-
+  
     //state de busqueda
     const [busqueda, setBusqueda] = useState("");
 
-    //state de la modal 
-    const [showModal, setShowModal] = useState(false);
-    const [fromType, setFromType] = useState("");
-
-
-    //funcion de apertura modal
-    const handleOpenModal = (type, id = null) => {
-        setFromType(type);
-        setClienteId(id);
-        setShowModal(true);
-    };
-
-    //funcion de cierre modal
-    const handleCloseModal = () => {
-        setShowModal(false);
-        setFromType("");
-        setEstudianteId(null);
-    };
-
-    const TITULOS = {
-        Estudiant: "Nuevo Estudiante",
-        verEstudiant: "Ver Estudiante",
-        editarEstudiant: "Editar Estudiante"
-    };
-
+    const [estudiantes, setEstudiantes] = useState([]);
+    const [estudiantesId, setEstudiantesId] = useState(null);
 
     const cargarEstudiantes = async () => {
-        try {const response = await axios.get(URL_CLIENTES);
-            console.log("ESTUDIANTES CARGADOS:", response.data);
-            setClientes(response.data)
+        try {
+            const response = await axios.get(mostrarEstudiantes);
+            console.log("ESTUDIANTE AGREGADO CON EXITO", response.data);
+            setCursos(response.data);
         } catch (error) {
-            console.error("Error al cargar los estudiantes:", error);
+            console.error("Error al cargar estudiante", error);
+
+        }
+    }
+
+    useEffect(() => {
+        cargarEstudiantes();
+    }, []);
+
+
+    const borrarEstudiante = async (id) => {
+        try {
+            await axios.delete(`${mostrarEstudiantes}/${id}`);
+            alert("Estudiante eliminado con éxito");
+            getEstudiantes();
+        
+    } catch (error) {
+            console.error("Error eliminando el estudiante", error);
+            alert("Error eliminando el estudiante")
         }
     }
 
@@ -73,18 +66,7 @@ const MainEstudiante = () => {
         estudiante.email.toLowerCase().includes(busqueda.toLowerCase())
     );
 
-    const borrarEstudiante = async (id) => {
-        try {
-            if (confirm("¿Estás seguro de que deseas eliminar este estudiante?")) {
-            await axios.delete(`${mostrarEstudiantes}/${id}`);
-            alert("Estudiante eliminado con éxito");
-            getEstudiantes();
-        }
-    } catch (error) {
-            console.error("Error eliminando el estudiante", error);
-            alert("Error eliminando el estudiante")
-        }
-    }
+    
 
 
 
