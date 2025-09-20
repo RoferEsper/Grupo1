@@ -1,4 +1,5 @@
 const express = require ("express")
+const cors = require ("cors");
 const mysql = require ("mysql2")
 const {connection} = require('./Config/dataBase')
 const inscripciones = require ("./Routers/inscripciones")
@@ -8,6 +9,10 @@ const estudiantes = require('./Routers/estudiantes')
 //instancio express
 const app = express()
 
+//habilito cors
+app.use(cors({
+  origin: 'http://localhost:5173' // Puerto que utilizo en el frontend
+})); 
 //utilizo libreria
 app.use(express.json())
 
