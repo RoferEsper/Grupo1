@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { CURSOS, HOME, INSCRIPCIONES } from './Routers/router'
+import { CURSOS, HOME, INSCRIPCIONES, CURSOS,VER_CURSO, } from './Routers/router'
 
 import './App.css'
 import { Cursos } from './Pages/Cursos'
 import Home from './Pages/Home'
-import Inscripciones from './Pages/Inscripciones'
+import { VerCurso } from './Components/CRUD_Cursos/VerCurso'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -18,6 +18,7 @@ function App() {
         <Route path={INSCRIPCIONES} element={<Inscripciones/>}/>
 
         <Route path={CURSOS} element={<Cursos/>}/>
+        <Route path={VER_CURSO} element={<VerCurso/>}/>
       </Routes>
     </BrowserRouter>
     </>

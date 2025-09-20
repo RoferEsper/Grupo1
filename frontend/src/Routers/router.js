@@ -1,3 +1,6 @@
 export const HOME = "/"
 export const CURSOS = "/cursos"
 export const INSCRIPCIONES = "/inscripciones"
+export const VER_CURSO = "/cursos/:id"
+export const CREAR_CURSO = "/cursos/crear"
+export const EDITAR_CURSO = "/cursos/editar/:id"
