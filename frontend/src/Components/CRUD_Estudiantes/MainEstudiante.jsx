@@ -146,9 +146,9 @@ const MainEstudiante = () => {
                     <Modal.Title>{TITULOS[fromType]}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="d-flex justify-content-center " >
-                    {fromType === "Estudiant" && <FormClient onClose={handleCloseModal} onUpdated={cargarEstudiantes} />}
-                    {fromType === "verEstudiant" && <ViewClient id={estudianteId} />}{/*paso el id por prop */}
-                    {fromType === "editarEstudiant" && <EditClient id={estudianteId} onClose={handleCloseModal} onUpdated={cargarEstudiantes} />}
+                    {fromType === "Estudiant" && <FormEstudiante onClose={handleCloseModal} onUpdated={cargarEstudiantes} />}
+                    {fromType === "verEstudiant" && <VerEstudiante id={estudianteId} />}{/*paso el id por prop */}
+                    {fromType === "editarEstudiant" && <EditEstudiante id={estudianteId} onClose={handleCloseModal} onUpdated={cargarEstudiantes} />}
                 </Modal.Body>
 
 
@@ -160,3 +160,4 @@ const MainEstudiante = () => {
 }
 
 export default MainEstudiante;
+

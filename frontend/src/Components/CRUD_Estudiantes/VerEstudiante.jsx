@@ -24,7 +24,7 @@ const VerEstudiante = ({ id }) => {
 
     if (!estudiante) return <p>Cargando Estudiante...</p>;
 
-
+    console.log(estudiante);
 
   return (
     <>

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import { actualizarEstudiante } from '../../Endpoints/endpoint';
 import {useNavigate} from 'react-router-dom';
-import validationsFormEstudiantes from '../../Validations/ValidationsFormEstudiante';
 
 const EditEstudiante = ({id,onClose,onUpdated}) => {
 
@@ -34,11 +33,6 @@ const EditEstudiante = ({id,onClose,onUpdated}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const validation = validationsFormEstudiantes(formData);
-        if (validation.length != 0) {
-            return alert(validation)
-        }
 
         try {
             const response = await axios.put(actualizarEstudiante, formData);

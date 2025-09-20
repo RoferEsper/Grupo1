@@ -1,3 +1,7 @@
 export const HOME = "/"
 export const CURSOS = "/cursos"
-export const ESTUDIANTES = "/estudiantes"
+export const mostrarEstudiantes = "/estudiantes"
+export const mostrarEstudiante = "/estudiantes/:id"
+export const crearEstudiante = "/estudiantes/"
+export const actualizarEstudiante = "/estudiantes/:id"
+export const eliminarEstudiante = "/estudiantes/:id"
