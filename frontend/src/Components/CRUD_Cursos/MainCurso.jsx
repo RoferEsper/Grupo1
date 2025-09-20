@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mostrarCursos } from '../../Endpoints/endpoint'
-import { Link, UNSAFE_createClientRoutesWithHMRRevalidationOptOut } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { mostrarCurso } from '../../Endpoints/endpoint'
 import { useState, useEffect } from 'react';
