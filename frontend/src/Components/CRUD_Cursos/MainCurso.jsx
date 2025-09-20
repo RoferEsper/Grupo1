@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { mostrarCursos } from '../../Endpoints/endpoint'
-import { Link, UNSAFE_createClientRoutesWithHMRRevalidationOptOut } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { mostrarCurso } from '../../Endpoints/endpoint'
 import { useState, useEffect } from 'react';
@@ -58,8 +58,9 @@ export const MainCurso = () => {
                         value={busqueda}
                         onChange={(e) => setBusqueda(e.target.value)}
                     />
-                    <Button variant="light" style={{ backgroundColor: "rgba(63, 3, 175, 0.5)", color: "#fff" }} onClick={<FormCurso />} >Crear un nuevo Curso</Button>
-
+                    <Link to="/cursos/crear">
+                        <Button variant="light" style={{ backgroundColor: "rgba(63, 3, 175, 0.5)", color: "#fff" }} >Crear un nuevo Curso</Button>
+                    </Link>
                 </div>
 
 
@@ -68,6 +69,9 @@ export const MainCurso = () => {
                         <thead>
                             <tr>
                                 <th>Nombre</th>
+                                <th>Descripcion</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
 
                             </tr>
                         </thead>
@@ -76,14 +80,11 @@ export const MainCurso = () => {
                                 cursosFiltrados.reverse().map((curso) => (
                                     <tr key={curso.id_curso}>
                                         <td>{curso.nombre}</td>
+                                        <td>{curso.descripcion} </td>
 
-                                        <td>
-                                            <Link to={`/cursos/${curso.id_curso}`}>
-                                                <Button className='w-100' size="sm" variant='primary' >Ver</Button>
-                                            </Link>
-                                        </td>
+
                                         <td className="text-center">
-                                            <Link to={`/editar-curso/${curso.id_curso}`}>
+                                            <Link to={`/cursos/editar/${curso.id_curso}`}>
                                                 <Button className='w-100' size="sm" variant="warning" onClick={<EditCurso />} >Editar</Button>
                                             </Link>
                                         </td>
