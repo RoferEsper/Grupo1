@@ -15,7 +15,7 @@ const VerInscripcioness = () => {
     const traerInscripciones = async()=> {
         try {
             const {data} = await axios(mostrarInscripciones)
-            console.log(data)
+            // console.log(data)
             setInscripciones(data)
             setAllInscripciones(data)
         } catch (error) {

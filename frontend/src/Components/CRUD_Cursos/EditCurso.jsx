@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 
 export const EditCurso = () => {
+  const navigate = useNavigate()
   const [curso, setCurso] = useState({
     nombre: "",
     descripcion: ""
@@ -40,15 +41,16 @@ export const EditCurso = () => {
       const response = await axios.put(`http://localhost:8000/cursos/${curso.id_curso}`, curso);
       console.log("Curso actualizado correctamente", response.data);
       setCurso({});
-
+      alert("Curso actualizado correctamente.")
+      navigate("/cursos")
     } catch (error) {
       console.error("error alactualizar elcurso:", error);
-
+      alert("Error al actualizar curso.")
     }
   };
   return (
-    <>
-      <div className="bg-white p-4 rounded-3 shadow text-dark w-100 ">
+    <div className='d-flex justify-content-center align-items-center m-5'>
+      <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
         <h3 className="text-center mb-4">Formulario de cursos</h3>
         <Form className="px-5" onSubmit={handleSubmit} >
           <Form.Group className="mb-3">
@@ -73,6 +75,6 @@ export const EditCurso = () => {
           </div>
         </Form>
       </div>
-    </>
+    </div>
   )
 }

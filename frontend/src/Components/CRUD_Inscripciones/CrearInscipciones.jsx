@@ -1,11 +1,12 @@
 import axios from 'axios';
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap'
 import { crearInscripciones } from '../../Endpoints/endpoint';
 
 
 const CrearInscripciones = () => {
+    const navigate = useNavigate()
     const [inscripcion, setIncripcion] = useState({
         fecha_inscripcion: "",
         id_estudiante: "",
@@ -31,8 +32,11 @@ const CrearInscripciones = () => {
             id_estudiante: "",
             id_curso: ""
         });
+        alert("Inscripcion creada con exito.")
+        navigate("/inscripciones")
         } catch (error) {
             console.error("Error al crear el inscripcion:", error);
+            alert("Error al crear inscripcion.")
         }
 
     };
@@ -41,8 +45,8 @@ const CrearInscripciones = () => {
     
 
     return ( 
-        <>
-            <div className="bg-white p-4 rounded-3 shadow text-dark w-100 ">
+        <div className='d-flex justify-content-center align-items-center m-5'>
+            <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
                 <h3 className="text-center mb-4">Formulario de Inscripciones</h3>
                 <Form className="px-5" onSubmit={handleSubmit} >
                     <Form.Group className="mb-3">
@@ -70,7 +74,7 @@ const CrearInscripciones = () => {
                     </div>
                 </Form>
             </div>
-        </>
+        </div>
      );
 }
  

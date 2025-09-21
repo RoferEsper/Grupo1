@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap'
 
 
 export const FormCurso = () => {
-
+  const navigate = useNavigate()
   const [curso, setCurso] = useState({
     nombre: "",
     descripcion: ""
@@ -29,15 +29,19 @@ export const FormCurso = () => {
         nombre: "",
         descripcion: ""
       });
+      alert("Curso creado correctamente.")
+      navigate("/cursos")
       // Aquí puedes agregar lógica adicional, como redirigir o mostrar un mensaje de éxito
     } catch (error) {
       console.error("Error al crear el curso:", error);
+      alert("Error al crear curso.")
     }
 
   };
 
   return (
-    <div className="bg-white p-4 rounded-3 shadow text-dark w-100 ">
+    <div className='d-flex justify-content-center align-items-center m-5'>
+    <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
       <h3 className="text-center mb-4">Formulario de cursos</h3>
       <Form className="px-5" onSubmit={handleSubmit} >
         <Form.Group className="mb-3">
@@ -61,6 +65,7 @@ export const FormCurso = () => {
 
         </div>
       </Form>
+    </div>
     </div>
   )
 }

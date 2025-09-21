@@ -36,13 +36,13 @@ const EditarInscripcion = () => {
         try {
             const response = await axios.put(`${editarInscripcion}${inscripcion.id_inscripcion}`, inscripcion);
             console.log("Inscripcion actualizado correctamente", response.data);
+            alert("Inscripcion actualizada correctamente.")
             navigate("/inscripciones")
-
-            } catch (error) {
+        } catch (error) {
             console.error("error alactualizar elcurso:", error);
-
-            }
-        };
+            alert("Error al actualizar inscripcion..")
+        }
+    };
 
         console.log(inscripcion);
         
@@ -54,8 +54,8 @@ const EditarInscripcion = () => {
         }
 
     return ( 
-        <>
-            <div className="bg-white p-4 rounded-3 shadow text-dark w-100 ">
+        <div className='d-flex justify-content-center align-items-center m-5'>
+            <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
                 <h3 className="text-center mb-4">Formulario de editar inscripcion</h3>
                 <Form className="px-5" onSubmit={handleSubmit} >
                 <Form.Group className="mb-3">
@@ -83,7 +83,7 @@ const EditarInscripcion = () => {
                 </div>
                 </Form>
             </div> 
-        </>
+        </div>
      );
 }
  

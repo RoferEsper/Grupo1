@@ -20,7 +20,7 @@ export const MainCurso = () => {
     const cargarCursos = async () => {
         try {
             const response = await axios.get(mostrarCursos);
-            console.log("CURSOS CARGADOS CORRECTAMENTE:", response.data);
+            // console.log("CURSOS CARGADOS CORRECTAMENTE:", response.data);
             setCursos(response.data);
         } catch (error) {
             console.error("Error al cargar los cursos:", error);
@@ -33,11 +33,15 @@ export const MainCurso = () => {
 
     const borrar = async (id) => {
         try {
-            await axios.delete(`${mostrarCurso}${id}`);
-            console.log("Curso eliminado correctamente");
-            cargarCursos();
+            if (window.confirm("¿Estás seguro de que deseas eliminar este curso?")) {
+                await axios.delete(`${mostrarCurso}${id}`);
+                // console.log("Curso eliminado correctamente");
+                cargarCursos();
+                alert("Curso eliminado correctamente.")
+            }
         } catch (error) {
             console.error("Error al eliminar el curso:", error);
+            alert("Error al eliminar curso.")
         }
     }
 
@@ -45,10 +49,14 @@ export const MainCurso = () => {
         curso.nombre.toLowerCase().includes(busqueda.toLowerCase())
 
     );
+    
     return (
 
         <>
             <div className="w-100 d-flex justify-content-center align-items-center flex-column mb-5">
+                <div className='d-flex justify-content-center m-5 text-center'>
+                <h1>Modulo seccion cursos</h1>
+            </div>
                 <div className=' d-flex justify-content-center align-items-center m-3 w-75' >
                     <Form.Control
                         type="text"
@@ -85,7 +93,7 @@ export const MainCurso = () => {
 
                                         <td className="text-center">
                                             <Link to={`/cursos/editar/${curso.id_curso}`}>
-                                                <Button className='w-100' size="sm" variant="warning" onClick={<EditCurso />} >Editar</Button>
+                                                <Button className='w-100' size="sm" variant="warning"  >Editar</Button>
                                             </Link>
                                         </td>
 

@@ -7,11 +7,15 @@ const BorrarInscripcion = ({id_inscripcion, traerInscripciones}) => {
 
     const borrar = async()=>{
         try {
-            const {data} = await axios.delete(`${borrarInscripciones}${id_inscripcion}`)
-            console.log(data);
-            traerInscripciones()
+            if (window.confirm("¿Estás seguro de que deseas eliminar esta inscripcion?")) {
+                const {data} = await axios.delete(`${borrarInscripciones}${id_inscripcion}`)
+                // console.log(data);
+                traerInscripciones()
+                alert("Inscripcion borrada con exito.")
+            }
         } catch (error) {
             console.log(error);
+            alert("Error al eliminar inscripcion.")
             
         }
     }
