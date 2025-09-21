@@ -1,6 +1,9 @@
+
 DOCUMENTACION - PASO A PASO
 
 * Comandos
+Para inicializar el backend, se aplica el siguiente comando (no usamos nodemon):
+-> node --watch index.js
 
 1- Crear repositorio en GitHub: Nombre TP-programacion-IV
 * git init
