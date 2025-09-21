@@ -1,4 +1,87 @@
-Aqui va toda la documentacion del tp.
 
-probando fork
-probando fork joaquin
+DOCUMENTACION - PASO A PASO
+
+* Comandos
+Para inicializar el backend, se aplica el siguiente comando (no usamos nodemon):
+-> node --watch index.js
+
+1- Crear repositorio en GitHub: Nombre TP-programacion-IV
+* git init
+
+2- Crear Base de Datos en MySQL Workbench
+* create database tpprogramacion;
+
+3 - Se usa la base de datos
+* use (nombre database);
+
+4- Se procede a crear las Tablas
+* create table (nombre de la tabla)
+
+5- Tablas Cursos, Estudiantes, Inscripciones
+
+6- Ingresa en Visual Studio Code y se crea el proyecto
+
+7- Para el Frontend se realiza:
+* npm create vite@latest
+* Se elije React
+* Se elije JavaScript
+* Nombre del Proyecto: ej - frontend
+
+Para inicializar el Front, se realiza el siguiente Comando:
+-> npm run dev
+
+8- Se crea el backend:
+* npm init -y
+~ Se instalan las siguientes librerias:
+* npm i express
+* npm i mysql2
+* npm i nodemon
+
+9- En la carpeta backend se crean las carpetas: config, controller y router
+  En config se crea el archivo: dataBase.js
+  Es para realizar la conexion a la base de Datos
+
+10- En Controller y Router se crean los mismos archivos:
+* Cursos.js
+* Inscripciones.js
+* Estudiantes.js
+
+-> La carperta Router:
+Contiene las diferentes peticiones para realizar consultas (get,put,post,delete)
+EJ: router.get('/:id',mostrarCurso);
+EJ: router.post('/', crearInscripcion)
+EJ: router.put('/:id', editarEstudiante);
+
+-> La Carpeta Controller:
+Posee las query para realizar alguna consulta a la base de Datos
+EJ: Para crear, borrar, editar un nuevo Curso, estudiante, etc.
+
+11- Frontend se crean las carpertas: Components, Pages, Routers, Endpoints
+
+12- En la carpeta Components se crean las siguientes carpetas:
+* CRUD_Cursos:
+* CRUD_Estudiantes
+* CRUD_Inscripciones
+~ Dentro de cada carpeta se crea el archivo que contiene el Formulario de cada uno
+
+13- En la carpeta Pages se crean los archivos:
+* Home.jsx = pagina principal al abrir el sistema
+* Cursos.jsx = Nos lleva a una nueva pagina para ver los cursos
+
+14- En la carpeta Routers
+* Se exportan por constantes los distintos estados del Curso
+~ Crear, Editar, Ver, Buscar por ID
+EJ: export const CURSOS = "/cursos"
+
+15- En la carpeta Endpoints contiene las rutas del Curso que se trae desde el backend:
+* Se realizan las peticiciones desde aqui para traerlo al Front.
+EJ: export const mostrarCursos = 'http://localhost:8000/cursos';
+
+16- Tenemos el archivo App.jsx
+* Contiene todos los datos del Home (pagina principal) y la informacion principal que te lleva a los diferentes estados del curso.
+
+17- Tenemos el archivo index.jsx
+* Un archivo importe es app.use(express.json()) = procesa el cuerpo (body) de las peticiones HTTP en formato JSON.
+
+18- Para inicializar el backend, se aplica el siguiente comando (no usamos nodemon):
+-> node --watch index.js
