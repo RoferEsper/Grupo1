@@ -1,7 +1,80 @@
-import React from 'react'
+import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { Form, Button } from 'react-bootstrap'
+import { useParams } from 'react-router-dom';
 
 export const EditCurso = () => {
+  const navigate = useNavigate()
+  const [curso, setCurso] = useState({
+    nombre: "",
+    descripcion: ""
+  });
+
+  const {id} = useParams();
+
+
+  const getCurso = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:8000/cursos/${id}`);
+      setCurso(response.data);
+    } catch (error) {
+      console.error("Error al obtener el curso:", error);
+    }
+  };
+
+  useEffect(() => {
+    if (id) getCurso(id);
+  }, [id]);
+
+  const handleChange = (e) => {
+    setCurso({
+      ...curso,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.put(`http://localhost:8000/cursos/${curso.id_curso}`, curso);
+      console.log("Curso actualizado correctamente", response.data);
+      setCurso({});
+      alert("Curso actualizado correctamente.")
+      navigate("/cursos")
+    } catch (error) {
+      console.error("error alactualizar elcurso:", error);
+      alert("Error al actualizar curso.")
+    }
+  };
   return (
-    <div>EditCurso</div>
+    <div className='d-flex justify-content-center align-items-center m-5'>
+      <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
+        <h3 className="text-center mb-4">Formulario de cursos</h3>
+        <Form className="px-5" onSubmit={handleSubmit} >
+          <Form.Group className="mb-3">
+            <Form.Label>Nombre</Form.Label>
+            <Form.Control type="text" name="nombre" placeholder="Nombre del curso" value={curso.nombre || ""} onChange={handleChange} required />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Descripcion</Form.Label>
+            <Form.Control type="text" name="descripcion" placeholder="Introduccion a HTML" value={curso.descripcion ||""} onChange={handleChange} required />
+          </Form.Group>
+
+          <div className=" text-end mt3">
+            <Link to="/cursos">
+              <Button className="m-2" variant="danger">
+                Cancelar
+              </Button>
+            </Link>
+
+
+            <Button type="submit" variant="primary">Guardar</Button>
+
+          </div>
+        </Form>
+      </div>
+    </div>
   )
 }
