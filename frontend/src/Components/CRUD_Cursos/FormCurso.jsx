@@ -29,7 +29,7 @@ export const FormCurso = () => {
         nombre: "",
         descripcion: ""
       });
-      // Aquí puedes agregar lógica adicional, como redirigir o mostrar un mensaje de éxito
+    
     } catch (error) {
       console.error("Error al crear el curso:", error);
     }
