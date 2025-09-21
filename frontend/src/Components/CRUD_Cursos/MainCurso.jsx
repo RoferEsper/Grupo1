@@ -1,21 +1,19 @@
 import axios from 'axios';
 import { mostrarCursos } from '../../Endpoints/endpoint'
 import { Link } from "react-router-dom";
-
 import { mostrarCurso } from '../../Endpoints/endpoint'
 import { useState, useEffect } from 'react';
-import { FormCurso } from './FormCurso'
 import { EditCurso } from './EditCurso'
-import { VerCurso } from './VerCurso'
 import Table from 'react-bootstrap/Table';
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
+
 export const MainCurso = () => {
 
     //state de busqueda
     const [busqueda, setBusqueda] = useState("");
 
     const [cursos, setCursos] = useState([]);
-    const [cursosId, setCursosId] = useState(null);
+
 
     const cargarCursos = async () => {
         try {
@@ -98,8 +96,14 @@ export const MainCurso = () => {
                                         </td>
 
                                         <td className="text-center">
-                                            <Button className='w-100' size="sm" variant="danger" onClick={() => { borrar(curso.id_curso) }} >Eliminar</Button>
-
+                                            <Button
+                                                className="w-100"
+                                                size="sm"
+                                                variant="danger"
+                                                onClick={() => borrar(curso.id_curso)}
+                                            >
+                                                Eliminar
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))
