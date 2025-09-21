@@ -1,0 +1,81 @@
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { useState, useEffect } from 'react';
+import axios from "axios";
+import { actualizarEstudiante } from '../../Endpoints/endpoint';
+import {useNavigate} from 'react-router-dom';
+
+const EditEstudiante = ({id,onClose,onUpdated}) => {
+
+    const [formData, setFormdata] = useState({});
+
+    const navigate= useNavigate();
+
+    const getEstudiante = async () => {
+        try {
+            const response = await axios.get(`${actualizarEstudiante}${id}`);
+            setFormdata(response.data);
+        } catch (error) {
+            console.error("Error obteniendo el estudiante", error);
+            alert("Error obteniendo el estudiante")
+            navigate('/estudiantes');
+        }
+    }
+
+    useEffect(() => {
+        getEstudiante();
+    }, []);
+    
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormdata({ ...formData, [name]: value });
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.put(actualizarEstudiante, formData);
+            alert("Estudiante actualizado con exito")
+            onUpdated();
+            setFormdata({});
+            if(response){
+                onClose();
+            }
+
+            console.log(formData);
+        } catch (error) {
+            console.error("Error actualizando el estudiante", error);
+            alert("Error actualizando el estudiante")
+        }   
+    }
+
+
+
+  return (
+    <div className="bg-white p-4 rounded-3 shadow text-dark w-50 ">
+            <h3 className="text-center mb-4">Formulario de Estudiantes</h3>
+            <Form onSubmit={handleSubmit}  >
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Nombre</Form.Label>
+                    <Form.Control type="nombre" name="nombre" placeholder="Nombre" value={formData.nombre} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+                </Form.Group>
+            
+                <div className='d-flex justify-content-end'>
+                    <Button variant="secondary" className='me-2' onClick={onClose}>
+                        Cancelar
+                    </Button>
+                    <Button variant="primary" type="submit" onClick={handleSubmit}>
+                        Guardar
+                    </Button>
+                </div>
+            </Form>
+    </div>
+  )
+}
+
+export default EditEstudiante

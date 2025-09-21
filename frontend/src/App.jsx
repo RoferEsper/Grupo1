@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 // import { CREAR_INSCRIPCIONES, CURSOS, HOME, INSCRIPCIONES, VER_CURSO, } from './Routers/router'
-import { CURSOS, VER_CURSO, CREAR_CURSO, EDITAR_CURSO, CREAR_INSCRIPCIONES, HOME, INSCRIPCIONES, EDITAR_INSCRIPCION, } from './Routers/router'
+import { CURSOS, VER_CURSO, mostrarEstudiantes, crearEstudiante,mostrarEstudiante,actualizarEstudiante,eliminarEstudiante, CREAR_CURSO, EDITAR_CURSO, CREAR_INSCRIPCIONES, HOME, INSCRIPCIONES, EDITAR_INSCRIPCION, } from './Routers/router'
 
 import './App.css'
 import { Cursos } from './Pages/Cursos'
@@ -12,9 +12,11 @@ import CrearInscripciones from './Components/CRUD_Inscripciones/CrearInscipcione
 import { FormCurso } from './Components/CRUD_Cursos/FormCurso'
 import { EditCurso } from './Components/CRUD_Cursos/EditCurso'
 import EditarInscripcion from './Components/CRUD_Inscripciones/EditarInscripcion'
+import Estudiantes from './Pages/Estudiantes'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -29,6 +31,12 @@ function App() {
         <Route path={VER_CURSO} element={<VerCurso/>}/>
         <Route path={CREAR_CURSO} element={<FormCurso/>}/>'
         <Route path={EDITAR_CURSO} element={<EditCurso/>}/>'
+        
+        <Route path={mostrarEstudiantes} element={<Estudiantes/>}/>
+        <Route path={crearEstudiante} element={<Estudiantes/>}/>
+        <Route path={mostrarEstudiante} element={<Estudiantes/>}/>
+        <Route path={actualizarEstudiante} element={<Estudiantes/>}/>
+        <Route path={eliminarEstudiante} element={<Estudiantes/>}/>
       </Routes>
     </BrowserRouter>
     </>
