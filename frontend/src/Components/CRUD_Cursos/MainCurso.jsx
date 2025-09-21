@@ -1,21 +1,19 @@
 import axios from 'axios';
 import { mostrarCursos } from '../../Endpoints/endpoint'
 import { Link } from "react-router-dom";
-
 import { mostrarCurso } from '../../Endpoints/endpoint'
 import { useState, useEffect } from 'react';
-import { FormCurso } from './FormCurso'
 import { EditCurso } from './EditCurso'
-import { VerCurso } from './VerCurso'
 import Table from 'react-bootstrap/Table';
 import { Button, Form, Container, Row, Col } from "react-bootstrap";
+
 export const MainCurso = () => {
 
     //state de busqueda
     const [busqueda, setBusqueda] = useState("");
 
     const [cursos, setCursos] = useState([]);
-    const [cursosId, setCursosId] = useState(null);
+
 
     const cargarCursos = async () => {
         try {
@@ -31,9 +29,11 @@ export const MainCurso = () => {
         cargarCursos();
     }, []);
 
-    const borrar = async (id) => {
+    const borrar = async (id_curso) => {
         try {
-            await axios.delete(`${mostrarCurso}${id}`);
+            console.log(id_curso);
+
+            await axios.delete(`${mostrarCurso}${id_curso}`);
             console.log("Curso eliminado correctamente");
             cargarCursos();
         } catch (error) {
@@ -48,6 +48,9 @@ export const MainCurso = () => {
     return (
 
         <>
+            <div className='d-flex justify-content-center m-5 text-center'>
+                <h1>Modulo Seccion Cursos</h1>
+            </div>
             <div className="w-100 d-flex justify-content-center align-items-center flex-column mb-5">
                 <div className=' d-flex justify-content-center align-items-center m-3 w-75' >
                     <Form.Control
@@ -85,13 +88,21 @@ export const MainCurso = () => {
 
                                         <td className="text-center">
                                             <Link to={`/cursos/editar/${curso.id_curso}`}>
-                                                <Button className='w-100' size="sm" variant="warning" onClick={<EditCurso />} >Editar</Button>
+                                                <Button className="w-100" size="sm" variant="warning">
+                                                    Editar
+                                                </Button>
                                             </Link>
                                         </td>
 
                                         <td className="text-center">
-                                            <Button className='w-100' size="sm" variant="danger" onClick={() => { borrar(curso.id_curso) }} >Eliminar</Button>
-
+                                            <Button
+                                                className="w-100"
+                                                size="sm"
+                                                variant="danger"
+                                                onClick={() => borrar(curso.id_curso)}
+                                            >
+                                                Eliminar
+                                            </Button>
                                         </td>
                                     </tr>
                                 ))
