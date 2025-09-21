@@ -8,7 +8,7 @@ import Home from './Pages/Home'
 import MainEstudiante from './Components/CRUD_Estudiantes/MainEstudiante'
 import FormEstudiante from './Components/CRUD_Estudiantes/FormEstudiante'
 import EditEstudiante from './Components/CRUD_Estudiantes/EditEstudiante'
-import VerEstudiante from './Components/CRUD_Estudiantes/VerEstudiante'
+// import VerEstudiante from './Components/CRUD_Estudiantes/VerEstudiante'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,7 +22,7 @@ function App() {
           <Route path={mostrarEstudiantes} element={<MainEstudiante />} />
           <Route path={crearEstudiante} element={<FormEstudiante />} />
           <Route path={actualizarEstudiante} element={<EditEstudiante />} />
-          <Route path={mostrarEstudiante} element={<VerEstudiante />} />
+        
         </Routes>
       </BrowserRouter>
     </>
