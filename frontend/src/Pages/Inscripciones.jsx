@@ -5,7 +5,6 @@ const Inscripciones = () => {
     return ( 
         <>
             <MainInscripciones/>
-            <CrearInscripciones/>
         </>
      );
 }

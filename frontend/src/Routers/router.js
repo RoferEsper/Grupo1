@@ -6,3 +6,4 @@ export const EDITAR_CURSO = "/cursos/editar/:id"
 
 export const INSCRIPCIONES = "/inscripciones"
 export const CREAR_INSCRIPCIONES = "/inscripciones/crear"
+export const EDITAR_INSCRIPCION = "/inscripcion/editar/:id"

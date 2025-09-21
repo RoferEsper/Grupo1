@@ -72,7 +72,7 @@ const VerInscripcioness = () => {
                         </thead>
                         <tbody className=''>
                             {inscripciones.length > 0 ? (
-                                inscripciones.reverse().map((i) => (
+                                [...inscripciones].reverse().map((i) => (
                                     <tr key={i.id_inscripcion}>
                                         <td>{i.fecha_inscripcion.slice(0, 10)}</td>
                                         <td>{i.nombre_estudiante}</td>
@@ -86,8 +86,8 @@ const VerInscripcioness = () => {
                                             </Link>
                                         </td> */}
                                         <td className="text-center">
-                                            <Link to={``}>
-                                                <Button className='w-100' size="sm" variant="warning" onClick={""} >Editar</Button>
+                                            <Link to={`/inscripcion/editar/${i.id_inscripcion}`}>
+                                                <Button className='w-100' size="sm" variant="warning">Editar</Button>
                                             </Link>
                                         </td>
 
