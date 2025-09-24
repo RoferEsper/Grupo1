@@ -1,3 +1,25 @@
+<<<<<<< HEAD
+import React from 'react'
+import Header from '../Components/Header'
+import Main from '../Components/Main'
+import Footer from '../Components/Footer'
+import { Button } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import CARD_Cursos from '../Components/CARD_Cursos';
+const Home = () => {
+  return (
+    <div>
+      <Header />
+      <Main />
+      <CARD_Cursos />
+      <Button>gfhgf</Button>
+      <Footer />
+    </div>
+  )
+}
+
+export default Home
+=======
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
@@ -44,3 +66,4 @@ const Home = () => {
 }
  
 export default Home;
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e

@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const MainInscripciones = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default MainInscripciones
+=======
 import VerInscripcioness from "./VerInscripciones";
 
 const MainInscripciones = () => {
@@ -12,3 +25,4 @@ const MainInscripciones = () => {
 }
  
 export default MainInscripciones;
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e

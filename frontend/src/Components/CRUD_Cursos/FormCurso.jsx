@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const FormCurso = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default FormCurso
+=======
 import axios from 'axios';
 import { Link, useNavigate} from "react-router-dom";
 import { useState } from 'react';
@@ -69,3 +82,4 @@ export const FormCurso = () => {
     </div>
   )
 }
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e

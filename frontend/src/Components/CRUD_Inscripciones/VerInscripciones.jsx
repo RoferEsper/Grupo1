@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const VerInscripciones = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default VerInscripciones
+=======
 import axios from 'axios'
 import { useEffect, useState } from "react";
 import { mostrarInscripciones } from "../../Endpoints/endpoint";
@@ -113,3 +126,4 @@ const VerInscripcioness = () => {
 }
  
 export default VerInscripcioness;
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e

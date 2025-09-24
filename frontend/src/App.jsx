@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Pages/Home';
+=======
 import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 // import { CREAR_INSCRIPCIONES, CURSOS, HOME, INSCRIPCIONES, VER_CURSO, } from './Routers/router'
@@ -16,12 +20,16 @@ import MainEstudiante from './Components/CRUD_Estudiantes/MainEstudiante'
 import FormEstudiante from './Components/CRUD_Estudiantes/FormEstudiante'
 import EditEstudiante from './Components/CRUD_Estudiantes/EditEstudiante'
 // import VerEstudiante from './Components/CRUD_Estudiantes/VerEstudiante'
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
+<<<<<<< HEAD
+     <Home />
+=======
       <BrowserRouter>
         <Routes>
             <Route path={HOME} element={<Home/>}/>
@@ -39,6 +47,7 @@ function App() {
             <Route path={actualizarEstudiante} element={<EditEstudiante />} />
           </Routes>
         </BrowserRouter>
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e
     </>
   )
 }

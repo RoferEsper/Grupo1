@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const EditCurso = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default EditCurso
+=======
 import axios from 'axios';
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
@@ -78,3 +91,4 @@ export const EditCurso = () => {
     </div>
   )
 }
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e

@@ -1,3 +1,16 @@
+<<<<<<< HEAD
+import React from 'react'
+
+const MainCurso = () => {
+  return (
+    <div>
+      
+    </div>
+  )
+}
+
+export default MainCurso
+=======
 import axios from 'axios';
 import { mostrarCursos } from '../../Endpoints/endpoint'
 import { Link } from "react-router-dom";
@@ -121,3 +134,4 @@ export const MainCurso = () => {
         </>
     )
 }
+>>>>>>> 398a3498cd4ff7511fa1b83d04ae3b4a2539325e
